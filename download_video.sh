@@ -33,18 +33,25 @@ print_settings(){
 download_video(){
     local VID=$1
 
+    print_message "Downloading '$VID'" "info" "emphasis"
+
     # Download the video
     youtube-dl --recode-video mp4 $VID
 
-    # Extract the ID of the video which is after the 'v=' - https://www.youtube.com/watch?v=yLfd2BIJpE8
-    VIDEO_ID=$(echo $VID | cut -d'=' -f2)
+    if [[ $? != "0" ]]; then
+        print_message "There was an error downloading this video" "error" "emphasis"
+        print_message ""
+    else
+        # Extract the ID of the video which is after the 'v=' - https://www.youtube.com/watch?v=yLfd2BIJpE8
+        VIDEO_ID=$(echo $VID | cut -d'=' -f2)
 
-    # Get the name of the file created
-    VIDEO_FILE=$(ls | grep $VIDEO_ID);
+        # Get the name of the file created
+        VIDEO_FILE=$(ls | grep $VIDEO_ID);
 
-    # Remove the ID from the video file (including the '-')
-    echo "Renaming '$VIDEO_FILE'. Removing '$VIDEO_ID' from the name"
-    rename s/-$VIDEO_ID// "$VIDEO_FILE"
+        # Remove the ID from the video file (including the '-')
+        print_message "Renaming '$VIDEO_FILE'. Removing '$VIDEO_ID' from the name" "info"
+        rename s/-$VIDEO_ID// "$VIDEO_FILE"
+    fi
 }
 
 while :
@@ -87,7 +94,7 @@ if [[ $MODE == "file" ]]; then
         cd $OUTPUT_DIR
 
         # Download the videos from the file
-        while read VIDEO
+        while IFS= read -r VIDEO || [ -n "$VIDEO" ]
         do
             download_video $VIDEO
         done < /tmp/$(basename $VIDEOS_FILE)
@@ -103,6 +110,8 @@ elif [[ $MODE == "url" ]]; then
 
     if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
     then
+        # Create the output directory
+        mkdir -p $OUTPUT_DIR
         cd $OUTPUT_DIR
         download_video $YOUTUBE_URL
     else
