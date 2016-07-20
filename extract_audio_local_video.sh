@@ -48,7 +48,7 @@ do
     print_settings
 done
 
-
+# Build the command to be sent
 CMD="ffmpeg -i $INPUT_FILE -acodec libmp3lame $OUTPUT_FILE"
 
 print_message ""

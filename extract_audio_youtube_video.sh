@@ -42,17 +42,7 @@ extract_audio_from_video(){
         print_message "There was an error downloading this video" "error" "emphasis"
         print_message ""
     else
-        # Extract the ID of the video which is after the 'v=' - https://www.youtube.com/watch?v=yLfd2BIJpE8
-        VIDEO_ID=$(echo $VID | cut -d'=' -f2)
-
-        # Get the name of the file created
-        AUDIO_FILE=$(ls | grep $VIDEO_ID);
-
-        # Remove the ID from the video file (including the '-')
-        print_message "Renaming '$AUDIO_FILE'. Removing '$VIDEO_ID' from the name" "info"
-        print_message ""
-
-        rename s/-$VIDEO_ID// "$AUDIO_FILE"
+        print_message "Video successfully downloaded" "success"
     fi
 }
 

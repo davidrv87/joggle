@@ -42,15 +42,7 @@ download_video(){
         print_message "There was an error downloading this video" "error" "emphasis"
         print_message ""
     else
-        # Extract the ID of the video which is after the 'v=' - https://www.youtube.com/watch?v=yLfd2BIJpE8
-        VIDEO_ID=$(echo $VID | cut -d'=' -f2)
-
-        # Get the name of the file created
-        VIDEO_FILE=$(ls | grep $VIDEO_ID);
-
-        # Remove the ID from the video file (including the '-')
-        print_message "Renaming '$VIDEO_FILE'. Removing '$VIDEO_ID' from the name" "info"
-        rename s/-$VIDEO_ID// "$VIDEO_FILE"
+        print_message "Video successfully downloaded" "success"
     fi
 }
 
