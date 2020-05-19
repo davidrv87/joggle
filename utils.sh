@@ -17,10 +17,7 @@ CYAN="\033[0;36m"
 CYANBOLD="\033[1;36m"
 WHITE="\033[0;37m"
 WHITEBOLD="\033[1;37m"
-RESETCOLOR="\e[00m"
-
-RED='\033[0;31m'
-NC='\033[0m' # No Color
+RESETCOLOR="\033[00m"
 
 # Function to print a message with colors
 # $1 - the message to be printed
