@@ -12,6 +12,7 @@ print_message " (2) Extract the audio from a YouTube video" "info"
 print_message " (3) Extract the audio from a local video" "info"
 print_message " (4) Cut audio or video file" "info"
 print_message " (5) Convert audio format" "info"
+print_message " (6) Concat audio files" "info"
 print_message ""
 
 read -s -n 1 OPTION
@@ -33,6 +34,9 @@ case $OPTION in
     ;;
     5)
         source $DIR/convert_audio_format.sh
+    ;;
+    6)
+        source $DIR/concat_audio_files.sh
     ;;
     *)
         print_message "'$OPTION' is not a recognised option" "error"

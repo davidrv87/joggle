@@ -84,7 +84,7 @@ do
 done
 
 # Build the command to be sent
-CMD="ffmpeg -i $INPUT_FILE  ${CODEC:+-acodec $CODEC} $OUTPUT_FILE"
+CMD="ffmpeg -i $INPUT_FILE ${CODEC:+-acodec $CODEC} $OUTPUT_FILE"
 
 print_message ""
 print_message "Command to be sent: '$CMD'" "warning" "emphasis"
