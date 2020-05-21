@@ -16,7 +16,7 @@ FOLDER_LOCATION=""
 FILE_LOCATION=""
 OUTPUT_FILE="concat_audios.mp3"
 OUTPUT_DIR=""
-FILES_LIST=""
+FILES_LIST="concat:"
 
 print_settings(){
     print_message " (1) Folder location: $FOLDER_LOCATION" "info"
