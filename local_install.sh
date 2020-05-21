@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source utils.sh
+source ./utils/utils.sh
 
 WORKING_DIR=$(pwd)
 INSTALL_DIR="/opt/joggle"
