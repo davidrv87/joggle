@@ -2,9 +2,7 @@
 
 DIR="/opt/joggle"
 
-echo "DIR is $DIR"
-
-source $DIR/utils.sh
+source $DIR/utils/utils.sh
 
 print_message "What do you want to do?" "info" "emphasis"
 print_message " (1) Download a video from YouTube" "info"
@@ -21,22 +19,22 @@ print_message "Selected option: $OPTION"
 
 case $OPTION in
     1)
-        source $DIR/download_video.sh
+        source $DIR/functions/download_video.sh
     ;;
     2)
-        source $DIR/extract_audio_youtube_video.sh
+        source $DIR/functions/extract_audio_youtube_video.sh
     ;;
     3)
-        source $DIR/extract_audio_local_video.sh
+        source $DIR/functions/extract_audio_local_video.sh
     ;;
     4)
-        source $DIR/cut_file.sh
+        source $DIR/functions/cut_file.sh
     ;;
     5)
-        source $DIR/convert_audio_format.sh
+        source $DIR/functions/convert_audio_format.sh
     ;;
     6)
-        source $DIR/concat_audio_files.sh
+        source $DIR/functions/concat_audio_files.sh
     ;;
     *)
         print_message "'$OPTION' is not a recognised option" "error"

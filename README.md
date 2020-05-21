@@ -8,7 +8,7 @@ In order to install *Joggle*, follow these steps:
 
 1. Clone this [repository][repository] anywhere in your computer.
 2. Open a terminal and go to the directory where you cloned the repository.
-3. Run `sudo ./install.sh`.
+3. Run `sudo ./install.sh` on Linux or `./install.sh` on Mac OS X - it may ask for `sudo` password
 4. You're all set!
 
 ## Functionalities
