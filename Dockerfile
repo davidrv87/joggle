@@ -20,8 +20,11 @@ RUN mkdir -p ${INSTALL_DIR} ${CONFIG_DIR}
 
 # Install joggle
 WORKDIR ${INSTALL_DIR}
-COPY . .
-RUN rm -rf local_install.sh \
+COPY config functions utils joggle.sh ${INSTALL_DIR}/
+RUN mkdir -p config functions utils \
+    && mv youtube-dl_config config \
+    && mv utils.sh utils \
+    && mv func__*.sh functions \
     && chown -R ${USER}:${GROUP} ${INSTALL_DIR} \
     && ln -fns /opt/joggle/joggle.sh /usr/local/bin/joggle
 

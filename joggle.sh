@@ -19,22 +19,22 @@ print_message "Selected option: $OPTION"
 
 case $OPTION in
     1)
-        source $DIR/functions/download_video.sh
+        source $DIR/functions/func__download_video.sh
     ;;
     2)
-        source $DIR/functions/extract_audio_youtube_video.sh
+        source $DIR/functions/func__extract_audio_youtube_video.sh
     ;;
     3)
-        source $DIR/functions/extract_audio_local_video.sh
+        source $DIR/functions/func__extract_audio_local_video.sh
     ;;
     4)
-        source $DIR/functions/cut_file.sh
+        source $DIR/functions/func__cut_file.sh
     ;;
     5)
-        source $DIR/functions/convert_audio_format.sh
+        source $DIR/functions/func__convert_audio_format.sh
     ;;
     6)
-        source $DIR/functions/concat_audio_files.sh
+        source $DIR/functions/func__concat_audio_files.sh
     ;;
     *)
         print_message "'$OPTION' is not a recognised option" "error"
